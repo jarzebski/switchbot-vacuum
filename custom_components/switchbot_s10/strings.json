@@ -1,0 +1,26 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "SwitchBot S10",
+        "description": "Enter your SwitchBot account credentials",
+        "data": {
+          "username": "Email",
+          "password": "Password"
+        }
+      },
+      "device": {
+        "title": "Select Device",
+        "description": "Multiple S10 vacuums found. Select the one to add.",
+        "data": {
+          "device_mac": "Device"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "Invalid authentication",
+      "no_devices": "No SwitchBot S10 devices found in account",
+      "cannot_connect": "Cannot connect to SwitchBot API"
+    }
+  }
+}
