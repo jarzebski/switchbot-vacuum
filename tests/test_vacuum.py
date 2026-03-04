@@ -30,7 +30,7 @@ def mock_coordinator():
         "firmware": "1.1.061",
         "rooms": {"ROOM_001": "Table", "ROOM_013": "Kitchen"},
     }
-    coord.device_mac = "B0E9FE0075B6"
+    coord.device_mac = "AABBCCDDEEFF"
     coord.device_name = "S10 B6"
     coord.async_send_command = AsyncMock(return_value={"resultCode": 100})
     coord.async_request_refresh = AsyncMock()

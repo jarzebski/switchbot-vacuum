@@ -29,7 +29,7 @@ def mock_hass():
 def mock_entry():
     """Create a mock config entry."""
     entry = MagicMock()
-    entry.data = {"username": "test@test.com", "password": "testpass", "device_mac": "B0E9FE0075B6"}
+    entry.data = {"username": "test@test.com", "password": "testpass", "device_mac": "AABBCCDDEEFF"}
     entry.entry_id = "test_entry_id"
     return entry
 
@@ -91,7 +91,7 @@ class TestDiscoverDevices:
             "body": {
                 "Items": [
                     {
-                        "device_mac": "B0E9FE0075B6",
+                        "device_mac": "AABBCCDDEEFF",
                         "device_name": "Floor Cleaning Robot S10 B6",
                         "device_detail": {"device_type": "WoSweeperOrigin"},
                         "userID": "user-123",
@@ -118,7 +118,7 @@ class TestDiscoverDevices:
             devices = await coordinator.async_discover_devices()
 
             assert len(devices) == 2
-            assert devices[0]["device_mac"] == "B0E9FE0075B6"
+            assert devices[0]["device_mac"] == "AABBCCDDEEFF"
             assert devices[1]["device_mac"] == "C0D1E2F30044"
 
     @pytest.mark.asyncio
@@ -128,7 +128,7 @@ class TestDiscoverDevices:
             "body": {
                 "Items": [
                     {
-                        "device_mac": "B0E9FE0075B6",
+                        "device_mac": "AABBCCDDEEFF",
                         "device_name": "Floor Cleaning Robot S10 B6",
                         "device_detail": {"device_type": "WoSweeperOrigin"},
                         "userID": "user-123",
@@ -171,7 +171,7 @@ class TestGetProperties:
         with _patch_session(resp):
             coordinator = SwitchBotS10Coordinator(mock_hass, mock_entry)
             coordinator.access_token = "fake_token"
-            coordinator.device_mac = "B0E9FE0075B6"
+            coordinator.device_mac = "AABBCCDDEEFF"
             props = await coordinator.async_get_properties([1003, 1004, 1010, 1053, 1052])
 
             assert props[1003] is True
@@ -189,7 +189,7 @@ class TestSendCommand:
         with _patch_session(resp):
             coordinator = SwitchBotS10Coordinator(mock_hass, mock_entry)
             coordinator.access_token = "fake_token"
-            coordinator.device_mac = "B0E9FE0075B6"
+            coordinator.device_mac = "AABBCCDDEEFF"
             coordinator._uuid = "test-uuid"
             result = await coordinator.async_send_command(
                 1001,

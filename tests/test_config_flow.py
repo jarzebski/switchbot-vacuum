@@ -56,7 +56,7 @@ class TestUserStep:
             mock_coord.async_login = AsyncMock()
             mock_coord.async_discover_devices = AsyncMock(return_value=[
                 {
-                    "device_mac": "B0E9FE0075B6",
+                    "device_mac": "AABBCCDDEEFF",
                     "device_name": "Floor Cleaning Robot S10 B6",
                     "user_id": "user-123",
                     "group_id": "group-123",
@@ -72,7 +72,7 @@ class TestUserStep:
             assert result["type"] == "create_entry"
             assert result["title"] == "Floor Cleaning Robot S10 B6"
             assert result["data"]["username"] == "test@test.com"
-            assert result["data"]["device_mac"] == "B0E9FE0075B6"
+            assert result["data"]["device_mac"] == "AABBCCDDEEFF"
 
     @pytest.mark.asyncio
     async def test_auth_error(self, mock_hass):
@@ -125,7 +125,7 @@ class TestDeviceStep:
             mock_coord.async_login = AsyncMock()
             mock_coord.async_discover_devices = AsyncMock(return_value=[
                 {
-                    "device_mac": "B0E9FE0075B6",
+                    "device_mac": "AABBCCDDEEFF",
                     "device_name": "S10 B6",
                     "user_id": "user-123",
                     "group_id": "group-123",
@@ -155,7 +155,7 @@ class TestDeviceStep:
         flow._password = "testpass"
         flow._devices = [
             {
-                "device_mac": "B0E9FE0075B6",
+                "device_mac": "AABBCCDDEEFF",
                 "device_name": "S10 B6",
                 "user_id": "user-123",
                 "group_id": "group-123",
