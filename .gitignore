@@ -10,5 +10,7 @@ build/
 # Sensitive / local data
 get_room_names.sh
 map_data/
+docs/plans/
+API_REFERENCE.md
 *.env
 /tmp/
